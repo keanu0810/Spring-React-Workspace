@@ -1,12 +1,12 @@
 var express = require('express');
 var app = express();
-var client_id = '7VaPvskrBGAEo5IaPiDl';/*네이버 개발자 센터 클라이언트 아이디로 교체*/
-var client_secret = 'ikGlklQFcZ';/**네이버 개발자 센터 시크릿 키로 교체 */
+var client_id = 'sa9Qr1Zb8xInzwvyHgDi'; /* 네이버 개발자 센터 클라이언트 아이디로 교체 */
+var client_secret = 'W9zVl9LMhO'; /* 네이버 개발자 센터 시크릿 키로 교체 */
 var state = "RANDOM_STATE";
-var redirectURI = encodeURI("http://localhost:9010/naverLogin");/**네이버 개발자 센터 콜백URL 교체 */
+var redirectURI = encodeURI("http://localhost:9010/naverLogin"); /* 네이버 개발자 센터 콜백URL 교체 */
 var api_url = "";
-//app.get('/naverlogin', fin)
-//나중에 로그인한 결과를 받는 공간
+//app.get('/naverlogin', function (req, res) {
+// 나중에 로그인한 결과를 받는 공간
 app.get('/naverLogin', function (req, res) {
   api_url = 'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=' + client_id + '&redirect_uri=' + redirectURI + '&state=' + state;
    res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'});
@@ -33,6 +33,6 @@ app.get('/naverLogin', function (req, res) {
     });
   });
  app.listen(3000, function () {
-  //127.0.0.1 localhost
-   console.log('http://127.0.0.1:3000/naverlogin app listening on port 3000!');
+    // 127.0.0.1 localhost
+   console.log('http://localhost:3000/naverlogin app listening on port 3000!');
  });

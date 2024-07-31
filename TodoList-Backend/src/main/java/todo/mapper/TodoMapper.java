@@ -15,5 +15,6 @@ public interface TodoMapper {
 	List<Todo> selectTodoList(int todoMemberNo);
 	int insert(Todo todo);
 	int update(Todo todo);
-	int delete(int todoNO);
+	int delete(int todoNo);
+
 }

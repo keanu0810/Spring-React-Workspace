@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-//안증키 확인 후 전송하는 코드
+// 인증키 확인 후 전송하는 코드
 @RestController
 public class AuthorizationController {
 
@@ -83,18 +83,25 @@ public class AuthorizationController {
 				"customerKey", customerKey, 
 				"code",code
 		);
-		// HttpEntity HTTP 요청의 본문과 요청조건사항이 담긴 headers를 가져와서 한 번에 묶어서 전달할 예정
+		
+		//  HttpEntity HTTP 요청의 본문과 요청조건사항이 담긴 headers를 가져와서 한 번에 묶어서 전달할 예정
 		HttpEntity<Map<String, String>> entity = new HttpEntity<>(requestBody, headers);
-		/* ResponseEntity<Map> response = restTemplate.exchange(url,  HttpMethod.POST, entity, Map..class);
-		  url = 요청을 보낼 주소값 가져오기
-		  HttpMethod.POST : 값을 삽입해야 하는지 조회해야하는지 수정해야하는지 삭제해야하는지 전달
-		  entity : 우리가 코드를 작성한 목적이 담긴 내용물과 제목 요청 조건 사항이 담긴 내용
-		  Map.class : 응답받을 데이터 타입을 지정 - > 응답을 key-value로 받아서 가지고 있겠다
-		 * */
-		ResponseEntity<Map> response = restTemplate.exchange(url,  HttpMethod.POST, entity, Map.class);
-				
-				//응답에 대한 실패 / 성공 결과가 담긴 내용을 전달
-				return new ResponseEntity<>(response.getBody(), response.getStatusCode());
+		//then(async function (response) {
+	
+		
+		/***
+			ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.POST, entity, Map.class);
+			url = 요청을 보낼 주소값 가져오기
+			HttpMethod.POST : 값을 삽입해야하는지 조회해야하는지 수정해야하는지 삭제해야하는지 전달
+			entity : 우리가 코드를작성한 목적이 담긴 내용물과 제목 요청 조건 사항이 담긴 내용
+			Map.class : 응답받을 데이터 타입을 지정 -> 응답을 key-value로 받아서 가지고 있겠다
+		 */
+		ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.POST, entity, Map.class);
+		//const result = await response.json();
+		//res.status(response.status).json(result);
+		
+		// 응답에 대한 실패 / 성공 결과가 담긴 내용을 전달
+		return new ResponseEntity<>(response.getBody(), response.getStatusCode());
 	}
 
 }

@@ -33,12 +33,6 @@ public class DBConfig {
 	@ConfigurationProperties(prefix = "spring.datasource.hikari")
 	public HikariConfig hikariConfig() {
 		HikariConfig config = new HikariConfig();
-		/*
-		config.setJdbcUrl("jdbc:mysql://localhost:3306/KH_WORKBOOK");
-		config.setUsername("root");
-		config.setPassword("kh1234");
-		config.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		*/
 		return new HikariConfig(); // hikari DataBase 연결을 도와주는 라이브러리 
 	}
 	
@@ -76,3 +70,15 @@ public class DBConfig {
 		// 저장을 안해서 안보이는 상황이라 여기지 않고, 코드 상이나 흐름에 문제가 있다고 생각할 수 있기 때문에 commit 진행 매니저 생성
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

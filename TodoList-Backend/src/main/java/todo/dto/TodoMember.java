@@ -1,14 +1,15 @@
 package todo.dto;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@ToString
 @Getter
 @Setter
+@ToString
 public class TodoMember {
 	private int todoMemberNo;
 	private String id;
-	
 	private String pw;
 	private String name;
 }

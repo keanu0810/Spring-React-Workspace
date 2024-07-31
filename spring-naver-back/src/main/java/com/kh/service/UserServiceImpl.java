@@ -42,3 +42,9 @@ public class UserServiceImpl  implements UserService{
 		userMapper.updateUser(user);
 	}
 }
+
+
+
+
+
+
