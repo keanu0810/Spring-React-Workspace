@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.mapper.PsrtMapper">
+	<!--  select 전체 게시글 보기 SQL -->
+	<select id="gindAll">
+		select p.id, p.title, p.content, image_url
+		from posts p
+		LEFT JOIN image i ON p.id= i.post_id
+	</select>
+	
+	<insert id="imsertPost">
+			<!-- posts 게시글 데이블에 tutle = 제목 content 내용 적성 -->
+		INSERT INTO posts (title, content) VALUES(#{title}, #{content)
+	</insert>
+	
+	<insert id="insertImage">
+		INSERT INTO image (post_id, image_url) VALUES(#{post_Id}, #{image_Url)
+	</insert>
+
+
+</mapper>
