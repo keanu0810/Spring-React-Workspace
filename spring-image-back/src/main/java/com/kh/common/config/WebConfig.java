@@ -2,6 +2,8 @@ package com.kh.common.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 // React :3000 포트 SpringBoot :백엔드포트가
@@ -11,6 +13,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration //설정
 public class WebConfig implements WebMvcConfigurer{
+	
+	// 이미지폴더경로를 react가 가져갈 수 있도록 허용
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry r) {
+		r.addResourceHandler("/images/**")
+		 .addResourceLocations("C:/Users/user1/Desktop/saveImage/"); //바탕화면에 지정한 이미지 경로 넣어주기
+	}
+	
 	
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {

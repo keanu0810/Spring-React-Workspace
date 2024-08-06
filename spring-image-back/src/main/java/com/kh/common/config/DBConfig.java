@@ -18,7 +18,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration // Springboot 설정
-@PropertySource("classpath:/configs.properties")
+@PropertySource("classpath:/config.properties")
 public class DBConfig {
 	
 	@Autowired
