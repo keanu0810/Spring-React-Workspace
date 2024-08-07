@@ -2,37 +2,89 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-container{
+  margin-bottom: 20px;
+  padding: 10px;
+  /*#111 검정 ~~~ 중간은 검정과 흰색 사이 색상 ~~~ #fff흰색*/
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-container table{
+  width: 100%;
+}
+.form-container td{
+  padding: 10px;
+}
+/*form-consainer 내부에 input label css*/
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 22px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+label{
+  font-size: 20px;
+}
+.file-label {
+display: inline-block;
+padding: 10px 20px;
+background-color: #004bff;
+color: wheat;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.file-label input {
+  display: none;
+}
+
+button {
+ background-color: #007bff;
+ color: wheat;
+ border: none;
+ border-radius: 5px;
+ padding: 10px;
+ cursor: pointer;
+ font-size: 20px;
+}
+button:hover {
+  background-color: #d6eaff;
+  color: black;
+}
+
+.posts-container {
+  margin-top: 20px;
+
+}
+
+.post{
+  border: 1px solid #ddd ;
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.posts.image {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.post .images img {
+  /*가로 길이 최대 크기설정
+  200px 이상인 이미지 크기를
+  200px 이상 커지지 못하도록 조정
+  */
+  max-width: 200px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
 }
