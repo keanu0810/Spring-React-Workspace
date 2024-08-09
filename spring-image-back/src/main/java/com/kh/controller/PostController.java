@@ -37,4 +37,16 @@ public class PostController {
 		List<Post> posts = postService.findAll();
 		return ResponseEntity.ok(posts);
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+

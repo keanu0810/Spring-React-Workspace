@@ -81,7 +81,7 @@ public class PostServiceImpl implements PostService{
 				
 				try {
 					file.transferTo(df);
-				} catch (Exception e) {
+				} catch (IOException e) {
 					throw new RuntimeException("파일 업로드 실패", e);
 				}
 				
@@ -98,10 +98,21 @@ public class PostServiceImpl implements PostService{
 		post.setContent(content);
 		post.setImageUrl(String.join(",", fileNames));
 		insertPost(post);
-		
-		
-		
-		
-		
+	}
+	
+	@Override
+	public void updatePost(Post post) {
+		//insertPost 그대로 쓰면됨
+		// 바탕화면에 이미지가 저장된 폴더에서 기존이미지를 삭제
 	}
 }
+
+
+
+
+
+
+
+
+
+
