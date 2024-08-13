@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import AuthContext from "./layout/AuthContext";
 /*
 useLocation : URL의 정보를 포함한 객체
               경로, 해시, 문자열값 등 가지고 온 객체
 
 */
-function UserInfo() {
+function NaverSignup () {
   const [userInfo, setUserInfo] = useState(null);
   /****** 2024-08-12 비밀번호 값 설정 추가 ******/
   const [password, setPassword] = useState(""); // 비밀번호 상태 추가
@@ -14,6 +15,7 @@ function UserInfo() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
 
+  const {loginMember} = useContext(AuthContext);
 
   //어떤 클릭이 없어도 UserInfo 페이지 들어오면 자동으로 실행되는 효과
   useEffect(() => {
@@ -67,7 +69,7 @@ function UserInfo() {
     // 물건같은 데이터를 특정 장소에 전달하러 가기
     // axios.post(어디서 만날 것인지 특정 위치 설정, {주고 받을 데이터 설정}    ) 
     // axios.post('http://서울특별시/강남구/역삼역3번출구', {아이디 이메일 ~ 비밀번호를 전달할 것}    ) 
-    axios.post('http://localhost:9010/naverAPI/register', {
+    axios.post('http://localhost:9010/NaverAPI/register', {
       id : userInfo.response.id,
       email : userInfo.response.email,
       nickname : userInfo.response.nickname,
@@ -77,14 +79,13 @@ function UserInfo() {
       password : password
     }) 
     .then(response => {
-        console.log(response.data); //개발자가 무사히 DB들어갔는지 확인
-        alert("회원가입이 완료되었습니다.");// 클라이언트가 무사히 회원가입을 완료했는지 확인
+      console.log(response.data); //개발자가 무사히 Db에들어갔는지 확인
+      alert("회원가입이 완료되었습니다."); // 클라이언트가 무사히 회원가입을 완료했는지 확인
     })
     .catch(e => {
-        console.error('개발자가 에러 확인하는 공간 : ',e)
-        alert("회원가입에 실패하였습니다.")
+      console.error('개발자가 에러 확인하는 공간 : ',e);
+      alert("회원가입에 실패하였습니다.");
     })
-
   }
 
 
@@ -132,4 +133,4 @@ function UserInfo() {
   );
 }
 
-export default UserInfo;
+export default NaverSignup;
