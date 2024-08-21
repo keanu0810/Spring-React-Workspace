@@ -1,0 +1,51 @@
+.chicken-detail-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding:  20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: transform 0.3 ease;
+    perspective: 1000px;
+}
+.chicken-detail-container:hover{
+
+
+    /*
+    translateY = 새로로 움직임
+    -숫자px 위로 움직임
+    +숫자px 아래로 움직임
+
+        translateX = 새로로 움직임
+    -숫자px 왼쪽 움직임
+    +숫자px 오른쪽 움직임
+
+    translateZ 3D 형태의 움직임
+    주로 retateX(50deg) retateY(50deg) 과 사용
+    degree = 각도 deg 줄임말
+    retateX(50deg) X축을 기준으로50도 회원
+    retateY(50deg) Y축을 기준으로50도 회원
+
+    0deg   = 회전하지 않은 상태      
+    90deg  = 직각으로
+    180deg
+    360deg
+    transform 변화를 준다.
+    transform : 여러 기능을 작성할 때 띄어쓰기로 작성
+    */
+    transform: translateZ(80px) rotateY(20deg); 
+    /*transform: translateY(80px) translateX(80px);*/
+}
+
+.chicken-detail-container h1 {
+    font-size:  2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.chicken-detail-container p {
+    font-size: 1.2em;
+    color: #555;
+    line-height:  1.5; /*라인별 세로 크기 조정*/
+    margin: 10px 0;
+}
