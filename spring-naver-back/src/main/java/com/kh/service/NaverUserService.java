@@ -9,5 +9,4 @@ import com.kh.dto.NaverUser;
 public interface NaverUserService {
 	// 네이버 SNS 연동해서 회원가입하는 insert
 	void insertNaverUser(NaverUser user);
-
 }

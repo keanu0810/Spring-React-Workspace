@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 //  Line 17:34:  'userInfo' is not defined  no-undef 
 //useState(null);
-const Login = () => {
+const APILogin = () => {
     const [userInfo, setUserInfo] = useState(null);
 
     //useEffect를 활용해서 데이터 가져오기
@@ -59,7 +59,7 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default APILogin;
 
 /*
   백엔드에서 가져온 값 문자열처리(  네이버에서 가져온 값 , 특정값을변환 ,    두 칸 들여쓰기  )

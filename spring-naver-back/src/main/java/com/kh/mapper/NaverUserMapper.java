@@ -11,8 +11,7 @@ import com.kh.dto.NaverUser;
 @Mapper
 public interface NaverUserMapper {
 	List<NaverUser> findAll();
-
+	
 	// 네이버 SNS 연동해서 회원가입하는 insert
 	void insertNaverUser(NaverUser user);
-
 }

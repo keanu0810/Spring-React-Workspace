@@ -45,3 +45,11 @@ public class APISController {
 		 System.out.println("측정결과 전달하기");
 	}
 }
+
+
+
+
+
+
+
+

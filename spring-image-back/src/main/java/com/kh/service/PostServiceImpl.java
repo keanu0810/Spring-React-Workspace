@@ -102,8 +102,9 @@ public class PostServiceImpl implements PostService{
 	
 	@Override
 	public void updatePost(Post post) {
-		//insertPost 그대로 쓰면됨
+		// insertPost 그대로 쓰면됨
 		// 바탕화면에 이미지가 저장된 폴더에서 기존이미지를 삭제
+		
 	}
 }
 

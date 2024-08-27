@@ -24,3 +24,15 @@ public class APIController {
 		return apiService.getApiData(endpoint);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

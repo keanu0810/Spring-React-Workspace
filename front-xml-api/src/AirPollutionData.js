@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './AirPollutionData.css';
-
 const AirPollutionData = () => {
   //axios 이용한 api 연결 useEffect 사용
   const [data, setData] = useState([]);

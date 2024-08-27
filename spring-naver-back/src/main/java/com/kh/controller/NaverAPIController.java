@@ -74,29 +74,45 @@ public class NaverAPIController {
 		 
 		
 	}
-	@GetMapping("/signup/naver") // 나중에 callback 에서 가져온 userinfo 가 보이는 주소 값
+	
+	
+	
+	
+	// 나중에 callback에서 가져온 유저정보가 보이는 주소
+	@GetMapping("/signup/naver")
 	public ResponseEntity<String> getUserInfo(@RequestParam("access_token") String accessToken) {
-		String apiURL = "https://openapi.naver.com/v1/nid/me"; // userinfo 가 담긴 url
+		String apiURL = "https://openapi.naver.com/v1/nid/me"; //유저 정보가 담긴 url
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", "Bearer " + accessToken);
-		headers.set("Accept", "application/json"); // 가져온 데이터를 json 글자 데이터로 전달하겠다는 의미의 코드이다.	
-		HttpEntity<String> entity = new HttpEntity<>(headers); // 뒤 <> 는 비워두어도 상관없다.
+		headers.set("Accept", "application/json"); // 가져온 데이터를 json 글자 데이터로 전달
 		
-		// entity 까지 무사히 넘어오는지 확인하기
-		System.out.println("Entity: " + entity);
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+		// entity까지 무사히 넘어오는지 확인
+		System.out.println("Entity : " + entity);
 		
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> res = restTemplate.exchange(apiURL, HttpMethod.GET, entity, String.class);
 		
-		System.out.println("Response Status Code: " + res.getStatusCode()); // 네이버 로그인에서 로그인 성공/실패 여부
-		System.out.println("Response Headers: " + res.getHeaders()); // 네이버 로그인 시 자격 인증이 어떻게 들어갔는지
-		System.out.println("Response Body: " + res.getBody()); // 네이버 로그인 하여 가져온 로그인 정보 출력
+		System.out.println("Response Status Code : " + res.getStatusCode()); //네이버 로그인에서 로그인 성공 실패 여부
+		System.out.println("Response Headers : " + res.getHeaders()); // 네이버 로그인할 때 자격 인증이 어떻게 들어갔는지
+		System.out.println("Response Body : " + res.getBody()); // 네이버 로그인 해서 가져온 로그인 정보 출력
 		
-		// 만약 정상적으로 넘어갔다면 정상적으로 넘어갔다는 표시
-		// 실패했다면 넘어가지 않은 이유 출력
+		// 만약에 성공적으로 넘어갔다면 성공적으로 넘어갔다는 표시가 있지만
+		// 성공적으로 넘어가지 않았다면 넘어가지 않은 이유 출력
 		if(!res.getStatusCode().is2xxSuccessful()) {
-			System.err.println("Fail Status Code: " + res.getStatusCode());
+			System.err.println("fail Status code : " + res.getStatusCode());
 		}
+		
 		return res;
 	}
 }
+
+
+
+
+
+
+
+
+
+

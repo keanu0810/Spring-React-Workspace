@@ -6,15 +6,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
-// 1. gett sett
+@ToString
 @Entity //mysql 매핑
 public class BCUser {
 	
 	@Id // primary key
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // 자동으로 id값 올라가는 시퀀스 NextVal
 	private int id;
 	private String username;
 	private String email;

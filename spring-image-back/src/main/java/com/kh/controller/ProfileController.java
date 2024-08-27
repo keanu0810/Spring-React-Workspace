@@ -35,10 +35,10 @@ public class ProfileController {
 	*/
 	
 	
-	@GetMapping("/watching")
-	public ResponseEntity<List<UserProfile>> getProfile(){
-		return ResponseEntity.ok(service.getProfile());
-	}
+	 @GetMapping("/watching")
+	    public ResponseEntity<List<UserProfile>> getProfile(){
+	        return ResponseEntity.ok(service.getProfile());
+	    }
 	
 	/*
 	 * parameter Type error

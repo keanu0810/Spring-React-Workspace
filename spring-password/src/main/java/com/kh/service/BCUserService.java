@@ -7,9 +7,6 @@ import org.springframework.stereotype.Service;
 import com.kh.dto.BCUser;
 import com.kh.repository.BCUserRepository;
 
-
-//2  PasswrodEncoder
-//3  bcUser.getpassword
 @Service
 public class BCUserService {
 	
@@ -17,12 +14,20 @@ public class BCUserService {
 	private BCUserRepository bcUserRepository;
 	
 	@Autowired
-	private PasswordEncoder passwordEncoder; 
+	private PasswordEncoder passwordEncoder;
 	
-	// 패스워드 인코드를 저장
+	//패스워드 인코드를 저장
 	public void saveUser(BCUser bcUser) {
+		// 한 번 암호화 처리된 암호를 가져오는 것
 		bcUser.setPassword(passwordEncoder.encode(bcUser.getPassword()));
-		//JAP Repository 안에 save 이미 저장되어있기 때문에 굳이 작성 x
+		// JPA Repository 안에 save 이미 저장되어있기 때문에 굳이 작성 x
 		bcUserRepository.save(bcUser);
 	}
 }
+
+
+
+
+
+
+

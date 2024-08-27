@@ -16,19 +16,20 @@ public class LoginController {
 	
 	@Autowired
 	private LoginService loginService;
-	/*
-	 *  로그인 했을 때
-	 *  로그인 값이 있으면 왜 total : 1
-	 *  로그인 값이 없으면 왜 total : 0
-	 *  
-	 *  	Total : 1
-	 *  	Total : 1 = 로그인 조회했을 떄 존재한느 컬럼이 1개 발견 1
-	 *  
-	 *  		밎지 않는 아이디 비밀번호를 조회했을 때 컬럼이 0개 발견 0
-	 * */
 	
+	/*
+	 * 로그인했을 때 
+	 * 로그인 값이 있으면 왜 total : 1
+	 * 로그인 값이 없으면 왜 total : 0
+	 * ==>  Preparing: SELECT id, email, nickname, name, profile_image FROM naver_user WHERE id= ? AND password = ?
+	 * Parameters: kFPP1dD2ZLXceZoRAUHiUt5n98G4bBmf_IQ2-7OXWso(String), aaa(String)
+	 *      Total: 1
+	 *      Total: 1 = 로그인 조회했을 때 존재하는 컬럼이 1개 발견 1
+	 *      
+	 *        맞지 않는 아이디 비밀번호를 조회했을 때 컬럼이 0개 발견 0
+	 * */
 	@PostMapping("/login")
-	//login @RequestParam -> @RequestBody Map<Sting, String 
+	// login  @RequestParam -> @RequestBody Map<String, String> loginData
 	public ResponseEntity<String> login(@RequestParam("id") String id, @RequestParam("password") String password) {
 		NaverUser user = loginService.login(id, password);
 		if (user != null) { //유저정보가 존재하면 null 아닐 것
@@ -44,3 +45,12 @@ public class LoginController {
 	}
 
 }
+
+
+
+
+
+
+
+
+

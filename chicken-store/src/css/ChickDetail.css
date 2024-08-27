@@ -1,0 +1,96 @@
+.chicken-detail-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+    perspective: 1000px;
+}
+.chicken-detail-container:hover {
+
+    /*
+    transform 변화를 준다.
+    transform : 여러 기능을 작성할 때 띄어쓰기로 작성
+
+     translateY = 세로로 움직임  
+    -숫자px 위로 움직임
+    +숫자px 아래로 움직임
+
+    translateX = 가로로 움직임  
+        -숫자px 왼쪽으로 움직임
+        +숫자px 오른쪽로 움직임
+
+    translateZ = 3D형태의 움직임
+    주로   rotateX(50deg) rotateY(50deg) 과 사용
+    degree = 각도 deg 줄임말
+     rotateX(50deg) x축을 기준으로 50도 회전
+     rotateY(50deg) y축을 기준으로 50도 회전
+
+     0deg   = 회전하지 않은 상태
+     90deg  = 직각으로 회전한 상태
+     180deg = 반대방향으로 회전한 상태
+     360deg = 원래 위치로 돌아온 상태
+    */
+   /* transform: translateZ(80px) rotateX(50deg) rotateY(50deg);*/
+    /*transform: translateY(80px)  translateX(80px);*/
+}
+
+.chicken-detail-container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.chicken-detail-container p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.5; /*라인별 세로 크기 조정*/
+    margin: 10px 0;
+}
+
+.chicken-detail-container input,
+.chicken-detail-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em; /* em = 16px */
+    /*
+    box-sizing  : 태그의 전체 넓이와 높이를 어떻게 계산할 것인가 설정
+    border-box  : 넓이와 높이에 텍스트나 이미지, 패딩, 보더까지 포함해서
+                    전체적으로 계산
+    content-box : 넓이와 높이가 텍스트나 이미지와 같은 내용만 계산
+                    유동적으로 박스크기 설정
+    */
+    box-sizing: border-box;
+    transition: transform 0.5s ease;
+}
+
+/* transform 효과 Y(90) 주기 0.5s */
+.chicken-detail-container input:hover,
+.chicken-detail-container textarea:hover {
+  /*  transform: rotateY(90deg);*/
+
+  transform:  translateY(80px);
+}
+
+.chicken-detail-container button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    /*  transition 각 효과마다  변화되는 시간을 다르게 설정하고 싶을 때 쓰는 방법 */
+    transition: background-color 0.3s ease, font-size 1s ease;
+}
+/* 1초동안 천천히 늘려주기*/
+.chicken-detail-container button:hover {
+    background-color: #218838;
+    font-size: 20px;
+}
